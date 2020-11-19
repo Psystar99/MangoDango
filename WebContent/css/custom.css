@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);'
+/*
+기본 폰트는 noto sans kr로 설정
+thread th부분의 배경색은 lightgreen, 글씨 색은 white, 중앙정렬 이용
+*/
+*{
+	font-family : 'Noto Sans KR';
+}
+thead th{
+		background-color : lightgreen;
+		color : white;
+		text-align:center;
+}
+tr td:first-child,
+tr th:first-child{
+	border-top-left-radius:6px;
+	border-bottom-right-radius:6px;
+}
+
+tr td:last-child,
+tr th:last-child{
+	border-top-right-radius : 6px;
+	border-bottom-right-radius:6px;
+}
+h5{
+	font-family:'Noto Sans KR';
+	font-size:15px;
+}
+h4{
+	font-family:'Noto Sans KR';
+}
+h3{
+	font-family:'Noto Sans KR';
+}
+h2{
+	font-family:'Noto Sans KR';
+}
+h1{
+	font-family:'Noto Sans KR';
+}
+.vertical-alignment-helper{
+	display:table;
+	height:100%;
+	width:100%;
+	pointer-events:none;
+}
+.vertical-align-center{
+	display:table-cell;
+	vertical-align:middle;
+	pointer-events:none;
+}
+.modal-content{
+	width:inherit;
+	height:inherit;
+	margin:0 auto;
+	pointer-events:none;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #0A6E0A;
+  border-color: #0A6E0A;
+}
