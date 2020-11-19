@@ -71,11 +71,11 @@ public int getNext() {
 	}
 	
 	public ArrayList<Bbs> getList(int pageNumber){
-		String SQL ="SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable =1 ORDER BY bbsID DESC LIMIT 10";
+		String SQL ="SELECT * FROM bbs WHERE bbsid < ? AND bbsavailable =1 ORDER BY bbsid DESC LIMIT 10";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
+			pstmt.setInt(1, getNext()-(pageNumber-1)*5);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Bbs bbs = new Bbs();
@@ -95,7 +95,7 @@ public int getNext() {
 	
 }
 	public boolean nextPage(int pageNumber) {
-		String SQL ="SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable =1";
+		String SQL ="SELECT * FROM bbs WHERE bbsid < ? AND bbsavailable =1";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -112,7 +112,7 @@ public int getNext() {
 	}
 	
 	public Bbs getBbs(int bbsID) {
-		String SQL ="SELECT * FROM BBS WHERE bbsID = ?";
+		String SQL ="SELECT * FROM bbs WHERE bbsid = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,bbsID);
@@ -135,7 +135,7 @@ public int getNext() {
 	}
 	
 	public int update(int bbsID, String bbsTitle, String bbsContent) {
-		String SQL ="UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID=?";
+		String SQL ="UPDATE bbs SET bbstitle = ?, bbscontent = ? WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			
@@ -150,7 +150,7 @@ public int getNext() {
 		}return -1;//��� ����	
 	}
 	public int delete(int bbsID) {
-		String SQL ="UPDATE BBS SET bbsAvailable =0 WHERE bbsID=?";
+		String SQL ="UPDATE bbs SET bbsavailable =0 WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			
