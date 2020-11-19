@@ -72,7 +72,7 @@
 							<ul class="menu">
 								<!-- 메뉴버튼들: 아래 li는 하나씩 -->
 								<li><a href="login.jsp">Log in</a></li>
-								<li><a href="joinus_agree.jsp">Join us</a></li>
+								<li><a href="join.jsp">Join us</a></li>
 							</ul>
 							<%
 								} else {//로그인을 한 경우
@@ -89,28 +89,7 @@
 							<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 							<script src="js/bootstrap.js"></script>
 						</div>
-						<div class="divide b">
-							<a href="main.jsp">Ifari</a>
-						</div>
-						<div class="divide c">
-							<!-- 메뉴버튼들 -->
-							<input type="checkbox" id="toggle"> <label for="toggle"
-								class="toggle" onclick=""></label>
-							<ul class="menu" id="dropdown">
-								<!-- 메뉴버튼들: 아래 li는 하나씩 -->
-
-
-								<li class="drop"><a href="Gallery_main.jsp">Gallery</a>
-									<ul class="sub_menu" style="display: none;">
-
-										<li><a href="gallery_read_video.jsp"
-											style="background-color: #white; color: #6ac48e;">Video</a></li>
-									</ul></li>
-								<li><a href="About.jsp">About</a></li>
-								<li><a href="bbs.jsp">Letter</a></li>
-								<li><a href="Schedule.jsp">Schedule</a></li>
-							</ul>
-						</div>
+					<li><a href="bbs.jsp" style="color: #006400;"><b>Letter</b></a></li>
 					</div>
 					<!-- End of Header -->
 					<div id="dktnq"

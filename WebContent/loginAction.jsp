@@ -56,7 +56,7 @@
 						<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 						<script src="js/bootstrap.js"></script>
 					</div>
-				
+				<li><a href="bbs.jsp" style="color: #006400;"><b>Letter</b></a></li>
 				</div>
 				<!-- End of Header -->
 <%

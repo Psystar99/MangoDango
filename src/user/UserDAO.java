@@ -26,58 +26,6 @@ public class UserDAO {
 		}
 	}
 	
-	//���� ���̵� �޾Ƽ� ���̵� �����ϴ��� Ȯ���ϴ� �Լ�
-	public int registerCheck(String userID) {
-		String SQL="SELECT * FROM USER WHERE userID = ?";
-		try {
-			pstmt=conn.prepareStatement(SQL);
-			pstmt.setString(1, userID);
-			rs=pstmt.executeQuery();
-			if(rs.next()||userID.equals("")) {//�̹� �����ϰų� ���̵� �Է����� ���� ���
-				return 0;
-			}
-			else {
-				return 1;//���� ������ ȸ�� ���̵�
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(rs!=null) rs.close();
-				if(pstmt!=null) pstmt.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return -1; 	//�����ͺ��̽� ����
-	}
-	
-	//������ ȸ�� ����� �ϴ� �Լ�
-	public int register(String userID, String userPassword, String userName, String userAge,String userGender, String userEmail) {
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		String SQL="INSERT INTO USER VALUES (?, ?, ?, ?, ?, ?)";
-		try {
-			pstmt=conn.prepareStatement(SQL);
-			pstmt.setString(1, userID);
-			pstmt.setString(2, userPassword);
-			pstmt.setString(3, userName);
-			pstmt.setInt(4, Integer.parseInt(userAge));
-			pstmt.setString(5, userGender);
-			pstmt.setString(6, userEmail);
-			return pstmt.executeUpdate(); 	//������ ������ ���̽��� ������Ʈ��
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(rs!=null) rs.close();
-				if(pstmt!=null) pstmt.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return -1; 	//�����ͺ��̽� ����
-	}
 	
 	//블로
 	public int login(String userID, String userPassword) {

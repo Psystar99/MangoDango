@@ -13,11 +13,11 @@ public class BbsDAO {
 	
 	public BbsDAO() {
 		try {
-			String dbURL="jdbc:mysql://localhost:3306/REGISTER?serverTimezone=UTC";
+			String dbURL="jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
 			String dbID="root";
-			String dbPassword="mc01029092120";
+			String dbPassword="durmagkfajsl99";
 
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn=DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -39,7 +39,7 @@ public String getDate() {
 }
 
 public int getNext() {
-	String SQL ="SELECT bbsID FROM BBS ORDER BY bbsID DESC";
+	String SQL ="SELECT bbsid FROM bbs ORDER BY bbsid DESC";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				rs=pstmt.executeQuery();
@@ -53,7 +53,7 @@ public int getNext() {
 			}return -1;//��� ����
 }
 	public int write(String bbsTitle, String userID, String bbsContent) {
-		String SQL ="INSERT INTO BBS VALUES(?,?,?,?,?,?)";
+		String SQL ="INSERT INTO bbs VALUES(?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());

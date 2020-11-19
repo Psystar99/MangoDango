@@ -35,7 +35,7 @@
                   <ul class="menu">
                      <!-- 메뉴버튼들: 아래 li는 하나씩 -->
                      <li><a href="login.jsp"style=" color: #006400;"><b>Log in</b></a></li>
-                     <li><a href="joinus_agree.jsp">Join us</a></li>
+                     <li><a href="join.jsp">Join us</a></li>
                   </ul>
                   <%
                      } else {//로그인을 한 경우
@@ -52,7 +52,7 @@
                   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
                   <script src="js/bootstrap.js"></script>
                </div>
-              
+              <li><a href="bbs.jsp" style="color: #006400;"><b>Letter</b></a></li>
             </div>
             <!-- End of Header -->
 <div class="container">
