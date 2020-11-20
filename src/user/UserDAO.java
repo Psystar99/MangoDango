@@ -16,7 +16,7 @@ public class UserDAO {
 		
 			String dbURL="jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
 			String dbID="root";
-			String dbPassword="durmagkfajsl99";
+			String dbPassword="자기 비밀번호 넣";
 
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -61,5 +61,30 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return -1;	//������ ���̽� ����
+	}
+	//아이디 중복체크
+	public int registerCheck(String userID) {
+		String SQL="SELECT * FROM user WHERE userid = ?";
+		try {
+			pstmt=conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs=pstmt.executeQuery();
+			if(rs.next()||userID.equals("")) {//�̹� �����ϰų� ���̵� �Է����� ���� ���
+				return 0;
+			}
+			else {
+				return 1;//���� ������ ȸ�� ���̵�
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1; 	//�����ͺ��̽� ����
 	}
 }

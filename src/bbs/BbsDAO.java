@@ -1,4 +1,5 @@
 package bbs;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,52 +9,55 @@ import java.util.ArrayList;
 public class BbsDAO {
 
 	private Connection conn;
-	PreparedStatement pstmt=null;
-	ResultSet rs=null;
-	
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
 	public BbsDAO() {
 		try {
-			String dbURL="jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
-			String dbID="root";
-			String dbPassword="durmagkfajsl99";
+			String dbURL = "jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
+			String dbID = "root";
+			String dbPassword = "자기 비밀번호 넣기";
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn=DriverManager.getConnection(dbURL,dbID,dbPassword);
-		}catch(Exception e) {
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-public String getDate() {
-	String SQL ="SELECT NOW()";
-			try {
-				PreparedStatement pstmt = conn.prepareStatement(SQL);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					return rs.getString(1);
-				}
-			}catch(Exception e) {
-				e.printStackTrace();
-				
-			}return"";//��� ����
-}
 
-public int getNext() {
-	String SQL ="SELECT bbsid FROM bbs ORDER BY bbsid DESC";
-			try {
-				PreparedStatement pstmt = conn.prepareStatement(SQL);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					return rs.getInt(1)+1;
-				}
-				return 1; //ù�Խù��ΰ��
-			}catch(Exception e) {
-				e.printStackTrace();
-				
-			}return -1;//��� ����
-}
+	public String getDate() {
+		String SQL = "SELECT NOW()";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return "";// ��� ����
+	}
+
+	public int getNext() {
+		String SQL = "SELECT bbsid FROM bbs ORDER BY bbsid DESC";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1) + 1;
+			}
+			return 1; // ù�Խù��ΰ��
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return -1;// ��� ����
+	}
+
 	public int write(String bbsTitle, String userID, String bbsContent) {
-		String SQL ="INSERT INTO bbs VALUES(?,?,?,?,?,?)";
+		String SQL = "INSERT INTO bbs VALUES(?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
@@ -63,21 +67,22 @@ public int getNext() {
 			pstmt.setString(5, bbsContent);
 			pstmt.setInt(6, 1);
 			return pstmt.executeUpdate();
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			
-		}return -1;//��� ����
+
+		}
+		return -1;// ��� ����
 	}
-	
-	public ArrayList<Bbs> getList(int pageNumber){
-		String SQL ="SELECT * FROM bbs WHERE bbsid < ? AND bbsavailable =1 ORDER BY bbsid DESC LIMIT 10";
+
+	public ArrayList<Bbs> getList(int pageNumber) {
+		String SQL = "SELECT * FROM bbs WHERE bbsid < ? AND bbsavailable =1 ORDER BY bbsid DESC LIMIT 10";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*5);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Bbs bbs = new Bbs();
 				bbs.setBbsID(rs.getInt(1));
 				bbs.setBbsTitle(rs.getString(2));
@@ -87,37 +92,40 @@ public int getNext() {
 				bbs.setBbsAvailable(rs.getInt(6));
 				list.add(bbs);
 			}
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			
-		}return list;
-	
-}
+
+		}
+		return list;
+
+	}
+
 	public boolean nextPage(int pageNumber) {
-		String SQL ="SELECT * FROM bbs WHERE bbsid < ? AND bbsavailable =1";
+		String SQL = "SELECT * FROM bbs WHERE bbsid < ? AND bbsavailable =1";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				return true;
 			}
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			
-		}return false;
+
+		}
+		return false;
 	}
-	
+
 	public Bbs getBbs(int bbsID) {
-		String SQL ="SELECT * FROM bbs WHERE bbsid = ?";
+		String SQL = "SELECT * FROM bbs WHERE bbsid = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1,bbsID);
+			pstmt.setInt(1, bbsID);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				Bbs bbs = new Bbs();
 				bbs.setBbsID(rs.getInt(1));
 				bbs.setBbsTitle(rs.getString(2));
@@ -125,41 +133,45 @@ public int getNext() {
 				bbs.setBbsDate(rs.getString(4));
 				bbs.setBbsContent(rs.getString(5));
 				bbs.setBbsAvailable(rs.getInt(6));
-			
-			return bbs;
+
+				return bbs;
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			
-		}return null;//��� ����
+
+		}
+		return null;// ��� ����
 	}
-	
+
 	public int update(int bbsID, String bbsTitle, String bbsContent) {
-		String SQL ="UPDATE bbs SET bbstitle = ?, bbscontent = ? WHERE bbsid=?";
+		String SQL = "UPDATE bbs SET bbstitle = ?, bbscontent = ? WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			
+
 			pstmt.setString(1, bbsTitle);
 			pstmt.setString(2, bbsContent);
-			pstmt.setInt(3,bbsID);
+			pstmt.setInt(3, bbsID);
 			return pstmt.executeUpdate();
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			
-		}return -1;//��� ����	
+
+		}
+		return -1;// ��� ����
 	}
+
 	public int delete(int bbsID) {
-		String SQL ="UPDATE bbs SET bbsavailable =0 WHERE bbsid=?";
+		String SQL = "UPDATE bbs SET bbsavailable =0 WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			
-			pstmt.setInt(1,bbsID);
+
+			pstmt.setInt(1, bbsID);
 			return pstmt.executeUpdate();
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			
-		}return -1;//��� ����	
+
+		}
+		return -1;// ��� ����
 	}
 }
