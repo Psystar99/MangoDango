@@ -16,7 +16,7 @@ public class UserDAO {
 		
 			String dbURL="jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
 			String dbID="root";
-			String dbPassword="자기 비밀번호 넣";
+			String dbPassword="durmagkfajsl99";
 
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -69,11 +69,11 @@ public class UserDAO {
 			pstmt=conn.prepareStatement(SQL);
 			pstmt.setString(1, userID);
 			rs=pstmt.executeQuery();
-			if(rs.next()||userID.equals("")) {//�̹� �����ϰų� ���̵� �Է����� ���� ���
+			if(rs.next()||userID.equals("")) {
 				return 0;
 			}
 			else {
-				return 1;//���� ������ ȸ�� ���̵�
+				return 1;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
