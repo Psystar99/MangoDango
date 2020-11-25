@@ -10,7 +10,7 @@ private String bbsContent;
 private int bbsAvailable;
 
 private float star;
-private String fshopID;
+private int fshopID;
 
 public int getBbsID() {
 	return bbsID;
@@ -60,10 +60,10 @@ public float getStar() {
 public void setStar(float star) {
 	this.star = star;
 }
-public void setFshopID(String fshopID) {
+public void setFshopID(int fshopID) {
 	this.fshopID = fshopID;
 }
-public String getFshopID() {
+public int getFshopID() {
 	return fshopID;
 }
 }

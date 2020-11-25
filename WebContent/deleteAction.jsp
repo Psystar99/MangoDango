@@ -48,7 +48,7 @@
 		}
 		else{
 			BbsDAO bbsDAO = new BbsDAO();
-			int result = bbsDAO.delete(bbsID);
+			int result = bbsDAO.deleteReview(bbsID);
 			if (result == -1) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");

@@ -1,16 +1,14 @@
 package user;
 
 public class UserDTO {
-	private String userID;
-	private String userPassword;
-	private String userName;
-	private String userEmail;
-	//우리 프로젝트에 쓰일 
-	private String userNickName;
-	private String phoneNum;
-	private int age;
-	private int region;
-	private int sex;
+	
+	String userID;
+	String userPassword;
+	String userName;
+	int userSex;
+	String userNickname;
+	String userPhonenumber;
+	int userPreference;
 	
 	public String getUserID() {
 		return userID;
@@ -30,41 +28,30 @@ public class UserDTO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getUserEmail() {
-		return userEmail;
+	public int getUserSex() {
+		return userSex;
 	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+	public void setUserSex(int userSex) {
+		this.userSex = userSex;
 	}
-	public String getUserNickName() {
-		return userNickName;
+	public String getUserNickname() {
+		return userNickname;
 	}
-	public void setUserNickName(String userNickName) {
-		this.userNickName=userNickName;
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
 	}
-	public String getPhoneNum() {
-		return phoneNum;
+	public String getUserPhonenumber() {
+		return userPhonenumber;
 	}
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
+	public void setUserPhonenumber(String userPhonenumber) {
+		this.userPhonenumber = userPhonenumber;
 	}
-	public int getAge() {
-		return age;
+	public int getUserPreference() {
+		return userPreference;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setUserPreference(int userPreference) {
+		this.userPreference = userPreference;
 	}
-	public int getRegion() {
-		return region;
-	}
-	public void setRegion(int region) {
-		this.region = region;
-	}
-	public int getSex() {
-		return sex;
-	}
-	public void setSex(int sex) {
-		this.sex = sex;
-	}
-}
+	
 
+}

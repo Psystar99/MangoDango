@@ -143,7 +143,7 @@ public class BbsDAO {
 		return null;// ��� ����
 	}
 
-	public int update(int bbsID, String bbsTitle, String bbsContent) {
+	public int updateReview(int bbsID, String bbsTitle, String bbsContent) {
 		String SQL = "UPDATE bbs SET bbstitle = ?, bbscontent = ? WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -160,7 +160,7 @@ public class BbsDAO {
 		return -1;// ��� ����
 	}
 
-	public int delete(int bbsID) {
+	public int deleteReview(int bbsID) {
 		String SQL = "UPDATE bbs SET bbsavailable =0 WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
