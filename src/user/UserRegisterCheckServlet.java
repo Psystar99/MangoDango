@@ -18,5 +18,6 @@ public class UserRegisterCheckServlet extends HttpServlet {
 		
 		String userID=request.getParameter("userID");
 		response.getWriter().write(new UserDAO().idCheck(userID)+"");
+		//response.getWriter().write(1+"");
 	}
 }

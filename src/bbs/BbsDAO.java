@@ -172,6 +172,6 @@ public class BbsDAO {
 			e.printStackTrace();
 
 		}
-		return -1;// ��� ����
+		return -1;
 	}
 }

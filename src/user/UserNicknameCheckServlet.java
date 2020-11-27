@@ -22,5 +22,6 @@ public class UserNicknameCheckServlet extends HttpServlet {
 		
 		String userNickname=request.getParameter("userNickname");
 		response.getWriter().write(new UserDAO().NicknameCheck(userNickname)+"");
+		//response.getWriter().write(1+"");
 	}
 }

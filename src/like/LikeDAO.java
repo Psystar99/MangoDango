@@ -6,25 +6,68 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LikeDAO {
-/*	
+	
 	private Connection conn;
 	PreparedStatement pstmt=null;
 	ResultSet rs=null;
 	
 	public LikeDAO() {
 		try {
-			String dbURL="jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
+			String dbURL="jdbc:mysql://localhost:3306/mango?serverTimezone=UTC";
 			String dbID="root";
-			String dbPassword="자기 패스워";
+			String dbPassword="durmagkfajsl99";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn=DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	//1.좋아요 눌렀는지 DB에서 확인 함------------좋아요 눌러본 적 없는 음식점은 null이 반환--------------------------------------------------------------------
-		public int checkLike(String userID, String fshopID) {
-			String SQL="SELECT userpassword FROM user WHERE userid = ?";
+	/* 1.좋아요 눌렀는지 DB에서 확인 함
+	 * 
+	 * 2. 좋아요 정보 업데이트--> 페이지에서 처음 로딩할 때 호출했던 1번 함수 checkLike 사용(1: '좋아요'O / 0:'좋아요'X)
+	 * a. checkLike함수가 1일 떄: 좋아요가 이미 눌린 상태이므로 이미 디비에 정보가 저장되어 있어서 sql= update userlike set heartavailable=0 where userid=? and fshopid=?;
+	 * 
+	 * b. checkLike함수가 0일 때: sql=select * from userlike where userid=? and fshop=?   : 테이블에 해당 정보가 있는가?
+	 * 		b.A 테이블에 해당 정보가 없음 -> 테이블에 해당 정보 추가 sql2=insert into userlike values(?,?,?,?);
+	 *		b.B 테이블에 해당 정보가 있음-> sql2= update userlike set heartavailable=1 where userid=? and fshop=?;
+	 * */
+	   
+	//1
+		public int checkLike(String userID, int fshopID) {
+			String SQL="select heart from userlike where userid='t1' and fshop=1;";
+			try {
+				pstmt=conn.prepareStatement(SQL);
+				pstmt.setString(1,userID);
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					if(rs.getString(1).equals(userID)&&rs.getString(2).equals(fshopID)&&(rs.getInt(3)==1))
+						return 1;	//좋아요 누름: 
+					else
+						return 0;	
+				}
+				return -1;			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -2;}
+		
+		//2.a: 1의 return값이 1일떄
+		public int cancelLike(String userID, int fshopID) {
+			String SQL="update userlike set heart=0 where userid='t1' and fshop=1;";
+			try {
+				pstmt=conn.prepareStatement(SQL);
+				pstmt.setString(1,userID); 
+				pstmt.setInt(2,fshopID);
+				return pstmt.executeUpdate();
+						
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1;}
+		
+		//2.b 1의 return값이 0일떄
+		public int pushLike(String userID, int fshopID) {
+			String SQL="insert into userlike values(?,?,?)";
 			try {
 				pstmt=conn.prepareStatement(SQL);
 				pstmt.setString(1,userID);
@@ -40,24 +83,5 @@ public class LikeDAO {
 				e.printStackTrace();
 			}
 			return -2;}
-		//1.좋아요 눌렀는지 DB에서 확인 함------------좋아요 눌러본 적 없는 음식점은 null이 반환--------------------------------------------------------------------
-		public int updateLike(String userID, String fshopID) {
-			String SQL="UPDATE userpassword FROM user WHERE userid = ?";
-			try {
-				pstmt=conn.prepareStatement(SQL);
-				pstmt.setString(1,userID);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					if(rs.getString(1).equals(userID)&&rs.getString(2).equals(fshopID))
-						return 1;	
-					else
-						return 0;	
-				}
-				return -1;			
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-			return -2;}
-		*/
-
+		
 }
