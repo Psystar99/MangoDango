@@ -16,7 +16,7 @@ public class BbsDAO {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC";
 			String dbID = "root";
-			String dbPassword = "자기 비";
+			String dbPassword = "durmagkfajsl99";
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -143,7 +143,7 @@ public class BbsDAO {
 		return null;// ��� ����
 	}
 
-	public int updateReview(int bbsID, String bbsTitle, String bbsContent) {
+	public int update(int bbsID, String bbsTitle, String bbsContent) {
 		String SQL = "UPDATE bbs SET bbstitle = ?, bbscontent = ? WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -160,7 +160,7 @@ public class BbsDAO {
 		return -1;// ��� ����
 	}
 
-	public int deleteReview(int bbsID) {
+	public int delete(int bbsID) {
 		String SQL = "UPDATE bbs SET bbsavailable =0 WHERE bbsid=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -172,6 +172,6 @@ public class BbsDAO {
 			e.printStackTrace();
 
 		}
-		return -1;
+		return -1;// ��� ����
 	}
 }

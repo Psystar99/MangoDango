@@ -15,21 +15,20 @@ public class LikeDAO {
 		try {
 			String dbURL="jdbc:mysql://localhost:3306/mango?serverTimezone=UTC";
 			String dbID="root";
-			String dbPassword="자기 비";
+			String dbPassword="durmagkfajsl99";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn=DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	/* 1.좋아요 눌렀는지 DB에서 확인 함
+	/* 1. 페이지 로딩시: heart 확인: checkLike 메소드
+	 * return 값 --> 2:안채워짐, db에도 없음/ 1: 안채워짐, db있음/ 0: 채워짐  db있음
 	 * 
-	 * 2. 좋아요 정보 업데이트--> 페이지에서 처음 로딩할 때 호출했던 1번 함수 checkLike 사용(1: '좋아요'O / 0:'좋아요'X)
-	 * a. checkLike함수가 1일 떄: 좋아요가 이미 눌린 상태이므로 이미 디비에 정보가 저장되어 있어서 sql= update userlike set heartavailable=0 where userid=? and fshopid=?;
-	 * 
-	 * b. checkLike함수가 0일 때: sql=select * from userlike where userid=? and fshop=?   : 테이블에 해당 정보가 있는가?
-	 * 		b.A 테이블에 해당 정보가 없음 -> 테이블에 해당 정보 추가 sql2=insert into userlike values(?,?,?,?);
-	 *		b.B 테이블에 해당 정보가 있음-> sql2= update userlike set heartavailable=1 where userid=? and fshop=?;
+	 * 2. 클릭 액션이 일어났을 때: 좋아요 정보 업데이트 메소드--> 페이지에서 처음 로딩할 때 호출했던 1번 함수 checkLike 사용
+	 * 		a. checkLike함수가 2일 떄: pushLike 호출 --> DB에 heart=1하는 액션을 성공하면 1리턴 --> 1받으면 하트 채워줌
+	 * 		b. checkLike함수가 1일 떄: reLike를 호출--> DB에 heart=1하는 액션을 성공하면 1리턴 -->1받으면 하트 채워줌
+	 * 		c. checkLike함수가 0일 때: cancleLike를 호출--> DB에 heart=0하는 액션을 성공하면 1리턴 -->1받으면 하트 비줌	
 	 * */
 	   
 	//1
@@ -41,18 +40,22 @@ public class LikeDAO {
 				pstmt.setString(1,userID);
 				pstmt.setInt(2, fshopID);
 				rs=pstmt.executeQuery();
-				if(rs.next()||userID.equals("")) {
-					return 0;//찜한 기록 있
+				if(rs.next()) {
+					if(rs.getInt(1)==1) {return 0;}
+					else if(rs.getInt(1)==0) {return 1;}
+					else {
+						System.out.println("heart 값에 0,1말고 다른값!");
+						return -1;}
 				}
 				else {
-					return 1;//한번도 찜한 적 없
+					return 2;//디비에 정보가 없
 				}		
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 			return -1;}
 		
-		//2.a: 1의 return값이 1일떄
+		//2.c: 1의 return값이 0일떄
 		public int cancelLike(String userID, int fshopID) {
 			//String SQL="update userlike set heart=0 where userid='t1' and fshop=1;";
 			String SQL="update userlike set heart=0 where userid=? and fshop=?;";
@@ -67,7 +70,22 @@ public class LikeDAO {
 			}
 			return -1;}
 		
-		//2.b 1의 return값이 0일떄
+		//2.b 1의 리턴값 1일 떄
+		public int reLike(String userID, int fshopID) {
+			//String SQL="update userlike set heart=0 where userid='t1' and fshop=1;";
+			String SQL="update userlike set heart=1 where userid=? and fshop=?;";
+			try {
+				pstmt=conn.prepareStatement(SQL);
+				pstmt.setString(1,userID); 
+				pstmt.setInt(2,fshopID);
+				return pstmt.executeUpdate();
+						
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1;}
+		
+		//2.a: 1의 return값이 2일떄
 		public int pushLike(String userID, int fshopID) {
 			String SQL="insert into userlike values(?,?,?)";
 			try {

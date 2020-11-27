@@ -10,6 +10,9 @@ public class UserDTO {
 	String userPhonenumber;
 	int userPreference;
 	
+	public UserDTO() {}
+	
+	
 	public String getUserID() {
 		return userID;
 	}
