@@ -34,26 +34,28 @@ public class LikeDAO {
 	   
 	//1
 		public int checkLike(String userID, int fshopID) {
-			String SQL="select heart from userlike where userid='t1' and fshop=1;";
+			//String SQL="select heart from userlike where userid='t1' and fshop=1;";
+			String SQL="select heart from userlike where userid=? and fshop=?;";
 			try {
 				pstmt=conn.prepareStatement(SQL);
 				pstmt.setString(1,userID);
+				pstmt.setInt(2, fshopID);
 				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					if(rs.getString(1).equals(userID)&&rs.getString(2).equals(fshopID)&&(rs.getInt(3)==1))
-						return 1;	//좋아요 누름: 
-					else
-						return 0;	
+				if(rs.next()||userID.equals("")) {
+					return 0;//찜한 기록 있
 				}
-				return -1;			
+				else {
+					return 1;//한번도 찜한 적 없
+				}		
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			return -2;}
+			return -1;}
 		
 		//2.a: 1의 return값이 1일떄
 		public int cancelLike(String userID, int fshopID) {
-			String SQL="update userlike set heart=0 where userid='t1' and fshop=1;";
+			//String SQL="update userlike set heart=0 where userid='t1' and fshop=1;";
+			String SQL="update userlike set heart=0 where userid=? and fshop=?;";
 			try {
 				pstmt=conn.prepareStatement(SQL);
 				pstmt.setString(1,userID); 
@@ -71,17 +73,13 @@ public class LikeDAO {
 			try {
 				pstmt=conn.prepareStatement(SQL);
 				pstmt.setString(1,userID);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					if(rs.getString(1).equals(userID)&&rs.getString(2).equals(fshopID))
-						return 1;	
-					else
-						return 0;	
-				}
-				return -1;			
+			    pstmt.setInt(2,fshopID);
+			    pstmt.setInt(3, 1);
+				return pstmt.executeUpdate();
+						
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			return -2;}
+			return -1;}
 		
 }
