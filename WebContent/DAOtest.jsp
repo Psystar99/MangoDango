@@ -4,6 +4,7 @@
 <%@ page import="like.*"%>
 <%@ page import="review.*"%>
 <%@ page import="user.*"%>
+<%@page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter"%>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -32,9 +33,7 @@
 	UserDAO userDAO = new UserDAO();
 	int check = userDAO.join(testUser);
 	%>
-	회원가입 테스트:
-	<%=check%><br>
-	<br>
+	회원가입 테스트:<%=check%><br><br>
 
 	<%
 		check = userDAO.login("psy", "vowkd");
@@ -127,6 +126,77 @@
 	ReviewDAO 테스트
 	<%ReviewDAO reviewDAO=new ReviewDAO(); %>
 	<%check=reviewDAO.writeReview("psy", 2, "1번 리뷰", 3.5f); %>
+	리뷰 작성 테스트
+	
+	<%check=reviewDAO.writeReview("psys", 2, "2번 리뷰", 3.5); %>
+	리뷰 작성 테스트2:<%=check%><br><br> 
 
+<h5>음식점 리뷰 작성 중복 체크</h5>
+	<%check=reviewDAO.checkReview("t2", 1); %>
+	리뷰  중복   테스트(중복 ):<%=check%><br>
+	<%check=reviewDAO.checkReview("t1", 1); %>
+	리뷰  중복   테스트(중복아님):<%=check%><br>
+	<%check=reviewDAO.checkReview("t2", 4); %>
+	리뷰  중복   테스트(중복아님):<%=check%><br>
+	
+	<h5>음식점 리뷰 삭제</h5>
+	<%check=reviewDAO.deleteReview("t2", 3); %>
+	리뷰 삭제 테스트(성공 ):<%=check%><br>
+	<%check=reviewDAO.deleteReview("sy", 3); %>
+	리뷰 삭제 테스트(실패- 없는  글 ):<%=check%><br>
+	
+		
+	<h5>별점 구하기</h5>
+	 <%double star=reviewDAO.calStar(1); %>
+	첫번째 식당:<%=star %>
+	 <%star=reviewDAO.calStar(2); %>
+	두번째 식당:<%=star %>
+	 <%star=reviewDAO.calStar(3); %>
+	세 번째 식당:<%=star %>
+	
+	<h5>음식점 리뷰 수정</h5>
+	<%check=reviewDAO.updateReview("t2", 1, "아침 11다 소영아,,,", 5.0); %>
+	리뷰 수정테스트(성공 ):<%=check%><br>
+	<%check=reviewDAO.updateReview("t24252436", 3, "배고 졌", 5.0); %>
+	리뷰 수정테스트(실패 없는 사용 자 ):<%=check%><br>
+	<%check=reviewDAO.updateReview("t2", 10, "ㅁㄴㄹㅁ맛어 졌", 5.0); %>
+	리뷰 수정테스트(실패: 없는 음식):<%=check%><br>
+	
+	<h5>음식점 전체 리뷰</h5>
+	
+	<% 	ArrayList<Review> list = new ArrayList<Review>();
+	
+	for(int x=1;x<9;x++){
+	list=reviewDAO.getFshopReview(x);
+	for(int i=0;i<list.size();i++){
+	%>
+	작성자: <%=list.get(i).getUserName()%> / 
+	작성한 음식점: <%=list.get(i).getFshopID()%> /
+	작성날짜  :<%=list.get(i).getBbsDate()%> /
+	작성내용  :<%=list.get(i).getBbsContent()%> /
+	평점  : <%=list.get(i).getStar()%> /
+	<br>-----------------------------------------------<%=x %>-------------------------------------------------<br>
+	<%
+	}
+	%><br><% 
+	}
+	%>
+	
+	<h5>사용자 전체 리뷰</h5>
+	<%list=reviewDAO.getUserReview("t2");
+	for(int i=0;i<list.size();i++){
+	%>
+	작성자: <%=list.get(i).getUserName()%> / 
+	작성한 음식점: <%=list.get(i).getFshopID()%> /
+	작성날짜  :<%=list.get(i).getBbsDate()%> /
+	작성내용  :<%=list.get(i).getBbsContent()%> /
+	평점  : <%=list.get(i).getStar()%> /
+	<br>------------------------------------------------------------------------------------------------<br>
+	<%
+	}
+	%>
+	
+	
+	
 </body>
 </html>

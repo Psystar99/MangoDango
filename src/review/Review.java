@@ -6,7 +6,7 @@ public class Review {
 	private int fshopID;
 	private String bbsDate;
 	private String bbsContent;
-	private float star;
+	private double star;
 	private int bbsAvailable;
 
 
@@ -35,10 +35,10 @@ public class Review {
 	public void setBbsContent(String bbsContent) {
 		this.bbsContent = bbsContent;
 	}
-	public void setStar(float star) {
+	public void setStar(double star) {
 		this.star = star;
 	}
-	public float getStar() {
+	public double getStar() {
 		return star;
 	}
 	public int getBbsAvailable() {

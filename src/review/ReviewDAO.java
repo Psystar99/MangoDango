@@ -18,7 +18,7 @@ public class ReviewDAO {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/mango?serverTimezone=UTC";
 			String dbID = "root";
-			String dbPassword = "자기 비번 ";
+			String dbPassword = "durmagkfajsl99";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
@@ -27,8 +27,8 @@ public class ReviewDAO {
 	}
 	
 	//1. 음식점 전체 평점 구하는 함수  
-	public float calStar(int fshopID) {
-		float star=0;
+	public double calStar(int fshopID) {
+		double star=0;
 		int fnum=0;
 		String SQL="select star from review where fshop=?";
 		try {
@@ -44,6 +44,7 @@ public class ReviewDAO {
 			e.printStackTrace();
 		}
 		star/=fnum;
+		star=Math.round(star*100)/100.0;
 		return star;
 	}
 
@@ -64,7 +65,7 @@ public class ReviewDAO {
 	}
 	
 	//3. 리뷰 등록함수 
-	public int writeReview(String userName, int fshopID, String bbsContent, float star) {
+	public int writeReview(String userName, int fshopID, String bbsContent, double star) {
 		// insert into review values('t1',1,'2020-11-27',"맛굿",4.5,1);
 		String SQL = "INSERT INTO review VALUES(?,?,?,?,?,?)";
 		try {
@@ -73,7 +74,7 @@ public class ReviewDAO {
 			pstmt.setInt(2, fshopID);
 			pstmt.setString(3, getDate());
 			pstmt.setString(4, bbsContent);
-			pstmt.setFloat(5, star);
+			pstmt.setDouble(5, star);
 			pstmt.setInt(6, 1);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -139,7 +140,7 @@ public class ReviewDAO {
 	}
 
 	//6. 해당 사용자가 해당 음식점에대해 쓴 리뷰가 남아있는지 확인하는 함수, 사용자는 하나의 식당에 하나의 리뷰만 쓸 수 있다. 해당 메소드  리턴 값이 0이면 사용자는 글 작성이 제한된
-	public int checkReview(int fshop, String userName) {
+	public int checkReview(String userName,int fshop) {
 		// select rvavailable from review where username = 't1' and fshop= 1;
 		String SQL = "select rvavailable from review where username = ? and fshop= ?";
 		try {
@@ -167,15 +168,16 @@ public class ReviewDAO {
 	}
 
 	//7. 리뷰 수정 메소드 
-	public int updateReview(int fshop, String userName, String bbsContent, float star) {
+	public int updateReview(String userName, int fshop, String bbsContent, double star) {
 		// update review set rvcontent="냠냠굿" where username='t1' and fshop=1;
-		String SQL = "update review set rvcontent = ? where username = ? and fshop= ?";
+		String SQL = "update review set rvcontent = ?, star = ? where username = ? and fshop= ? and rvavailable =1";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 
 			pstmt.setString(1, bbsContent);
-			pstmt.setString(2, userName);
-			pstmt.setInt(3, fshop);
+			pstmt.setDouble(2, star);
+			pstmt.setString(3, userName);
+			pstmt.setInt(4, fshop);
 			return pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -186,7 +188,7 @@ public class ReviewDAO {
 	}
 	
 	//8.리뷰 삭제 메소드 
-	public int deleteReview(int fshop, String userName) {
+	public int deleteReview(String userName,int fshop) {
 		// "UPDATE review SET rvavailable =0 WHERE username = 't1' and fshop= 1;
 		String SQL = "UPDATE review SET rvavailable =0 WHERE username = ? and fshop= ?";
 		try {
