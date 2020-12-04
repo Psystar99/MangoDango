@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import bbs.Bbs;
 
 public class ReviewDAO {
 
@@ -40,6 +39,12 @@ public class ReviewDAO {
 			 fnum+=1;
 		 }
 
+		 
+		
+		 
+		 
+		 
+		 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
