@@ -37,13 +37,7 @@ public class ReviewDAO {
 		 while (rs.next()) {
 			 star+=rs.getFloat(1);
 			 fnum+=1;
-		 }
-
-		 
-		
-		 
-		 
-		 
+		 }		 
 		 
 		} catch (Exception e) {
 			e.printStackTrace();

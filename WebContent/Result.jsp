@@ -179,7 +179,7 @@
 						class="label">Email</span></a></li>
 			</ul>
 			<p class="copyright">
-				Design & Images: <a href="https://templated.co">슬기로운 서애생활</a>
+				<br>WEB PROGRAMMING PROJECT<br>문의사항 :psystar99@dgu.ac.kr
 		</footer>
 
 	</div>
