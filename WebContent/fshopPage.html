@@ -94,8 +94,8 @@
 				class="cafe-image" src="images/산쪼메.jpg"> <img
 				class="cafe-image" src="images/산쪼메.jpg"> <br> <br> <br>
 			<font size=15px>산쪼메&nbsp&nbsp</font> <img src="images/Fstar.png"><img
-				src="images/Fstar.png"><img src="images/Estar.png"><img
-				src="images/Estar.png"><img src="images/Estar.png">
+				src="images/Fstar.png"><img src="images/Fstar.png"><img
+				src="images/Estar.png"><img src="images/Estar.png">			<font size=5px>3</font>
 			<div class="cafe-icon">
 				<a href="writeReviewPage.html"><img class="icon"
 					src="images/pen.png"></a>&nbsp&nbsp<img class="icon"
@@ -115,13 +115,13 @@
 				<script>
 var mapContainer = document.getElementById('cafe-map'); //지도를 담을 영역의 DOM 레퍼런스
 var mapOption = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(37.573182762458806, 126.996372603826), //지도의 중심좌표.
+	center: new kakao.maps.LatLng(37.56124, 126.99956), //지도의 중심좌표.
 	level: 3 //지도의 레벨(확대, 축소 정도)
 };
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
 //마커가 표시될 위치입니다 
-var markerPosition  = new kakao.maps.LatLng(37.57263140227897, 127.00186774190638); 
+var markerPosition  = new kakao.maps.LatLng(37.56124, 126.99956); 
 
 //마커를 생성합니다
 var marker = new kakao.maps.Marker({
@@ -130,8 +130,8 @@ var marker = new kakao.maps.Marker({
 
 //마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);
-var iwContent = '<center>산쪼메</center>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-iwPosition = new kakao.maps.LatLng(37.57263140227897, 127.00186774190638); //인포윈도우 표시 위치입니다
+var iwContent = '<div style="padding:5px;font-size:12px;"><b>산쪼메</b></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwPosition = new kakao.maps.LatLng(37.56124, 126.99956); //인포윈도우 표시 위치입니다
 
 //인포윈도우를 생성합니다
 var infowindow = new kakao.maps.InfoWindow({
@@ -150,15 +150,14 @@ infowindow.open(map, marker);
 				<a href="othersPage.html"><img class="user-image"
 					src="images/mypage_icon.png"></a>
 				<div id="cafe-review-text-box">
-					<font size=4px>2020-11-16 &nbsp 14:44</font>
+					<font size=4px>2020-12-06 &nbsp 16:27</font>
 					<div id="review-star">
 						<img src="images/Fstar.png"><img src="images/Fstar.png"><img
-							src="images/Estar.png"><img src="images/Estar.png"><img
+							src="images/Fstar.png"><img src="images/Estar.png"><img
 							src="images/Estar.png">
 					</div>
 					<br> <br>
-					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가
-						이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
+					<div id="cafe-review-text">무난무난무난! 그냥 가끔 라면 먹고 싶을 때~~~ 돌 신기방기</div>
 
 				</div>
 			</div>
@@ -170,12 +169,11 @@ infowindow.open(map, marker);
 					<font size=4px>2020-12-02 &nbsp 12:14</font>
 					<div id="review-star">
 						<img src="images/Fstar.png"><img src="images/Fstar.png"><img
-							src="images/Estar.png"><img src="images/Estar.png"><img
-							src="images/Estar.png">
+							src="images/Fstar.png"><img src="images/Fstar.png"><img
+							src="images/Fstar.png">
 					</div>
 					<br> <br>
-					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가
-						이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
+					<div id="cafe-review-text">너무너무 맛있다! 역시 충무로 원탑!</div>
 
 				</div>
 			</div>
@@ -186,12 +184,12 @@ infowindow.open(map, marker);
 				<div id="cafe-review-text-box">
 					<font size=4px>2020-11-16 &nbsp 14:44</font>
 					<div id="review-star">
-						<img src="images/Fstar.png"><img src="images/Fstar.png"><img
+						<img src="images/Fstar.png"><img src="images/Estar.png"><img
 							src="images/Estar.png"><img src="images/Estar.png"><img
 							src="images/Estar.png">
 					</div>
 					<br> <br>
-					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가
+					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됨! 그래서 나는 내가
 						이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
 
 				</div>
