@@ -20,8 +20,8 @@ public class UserNicknameCheckServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		//String userNickname=request.getParameter("userNickname");
-		//response.getWriter().write(new UserDAO().NicknameCheck(userNickname)+"");
-		response.getWriter().write(1+"");
+		String userNickname=request.getParameter("userNickname");
+		response.getWriter().write(new UserDAO().NicknameCheck(userNickname)+"");
+		//response.getWriter().write(1+"");
 	}
 }

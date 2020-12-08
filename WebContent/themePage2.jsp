@@ -241,14 +241,14 @@
 			<div class="gtco-container">
 				<div class="row">
 					<div class="col-sm-2 col-xs-main">
-						<a href="main page.html"><img src = "images/logo.png" alt = "  "></a>
+						<a href="mainPage.jsp"><img src = "images/logo.png" alt = "  "></a>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
                   		<ul>
                     		<li class="active"><a href="index.html"></a></li>
                      		<div id = "right">
                         		<a href = "WC_main.html"><img class = "my-small"src = "images/worldcup.png" alt = ""></a>
-                        		<a href = "myPage.html"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
+                        		<a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
                      		</div>
                   		</ul>
                		</div>

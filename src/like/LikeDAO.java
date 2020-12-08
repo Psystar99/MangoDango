@@ -15,7 +15,7 @@ public class LikeDAO {
 		try {
 			String dbURL="jdbc:mysql://localhost:3306/mango?serverTimezone=UTC";
 			String dbID="root";
-			String dbPassword="자기 비번 ";
+			String dbPassword="durmagkfajsl99";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn=DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
