@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE HTML>
 
 <html>
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MANGOMANGO_MyPage</title>
+	<title>MANGOMANGO_cafePage</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -46,6 +49,8 @@
 	<![endif]-->
 
 	</head>
+	<body>
+		
 	<div class="gtco-loader"></div>
 	
 	<div id="page">
@@ -55,13 +60,13 @@
 				
 				<div class="row">
 					<div class="col-sm-2 col-xs-main">
-						<a href="main page.html"><img src = "images/logo.png" alt = "  "></a>
+						<a href="mainPage.html"><img src = "images/logo.png" alt = "  "></a>
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
 							<li class="active"><a href="index.html"></a></li>
 							<div id = "right">
-							<a href = ""><img class = "my-small" src = "images/worldcup.png" alt = ""></a>
+							<a href = "WC_main.html"><img class = "my-small" src = "images/worldcup.png" alt = ""></a>
 							<a href = "myPage.html"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
 							</div>
 							<div class="container-4">
@@ -78,90 +83,71 @@
 			</div>
 		</nav><hr>
 		<!-- TOP footer -->
-		
+
 		<div class="gtco-container">
-			<div class = "mypage_box">
-				<img src = "images/mypage_icon.png" alt = "">
+			<img class = "cafe-image" src = "images/산쪼메.jpg">
+			<img class = "cafe-image" src = "images/산쪼메.jpg">
+			<img class = "cafe-image" src = "images/산쪼메.jpg">
+			<br><br><br>
+			<font size = 15px>산쪼메&nbsp&nbsp</font>
+			<img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"><img src = "images/Estar.png">
+			<div class = "cafe-icon">
+				<a href = "writeReviewPage.html"><img class = "icon" src = "images/pen.png"></a>&nbsp&nbsp<img class = "icon" src = "images/zzim.png">
+			</div>
+			<hr>
+			<div id = "cafe-info">
+				음식점 이름 : 산쪼메<br><br>
+				음식점 주소 : 서울 중구 서애로1길 26<br><br>
+				음식점 전화번호 : 02-2273-0504<br><br>
+				음식종류 : 일식<br><br>
 				
-				<div id = "div_text">
-					이름 : 윤희창 <br>
-					닉네임 : HeeChang <br>
-					전화번호 : 010 - 2224 - 6528 <br>
-					성별 : 남성 <br>
-					선호지역 : 충무로 역<br>
+			</div>
+			<div id = "cafe-map">
+				map
+
+			</div>
+			
+			<font size = 15px>리뷰 (3)</font><hr>
+			<div class = "cafe-review">
+				<a href = "othersPage.html"><img class = "user-image" src = "images/mypage_icon.png"></a>
+				<div id = "cafe-review-text-box">
+					<font size = 4px>2020-11-16  &nbsp 14:44</font>
+					<div id = "review-star"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"></div><br><br>
+					<div id = "cafe-review-text">
+						이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가 이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨
+					</div>
 					
 				</div>
-			</div>
-		</div>
-		<div id = "div_mypage">
-			<font size = "6">내가 찜한 음식점 (3)</font><br><br>
-				<div id = "pickbox">
-					<a href = "fshopPage.html"><img class = "max-small" src = "images/한솥.jpg"></a>
-					<div id = "pickbox-text">
-						음식점 이름 : 한솥 도시락<br>
-						음식점 위치 : 서울 중구 서애로1길 26<br>
-						음식점 전화번호 : 02-2272-2224<br>
-						음식점 종류 : 도시락, 컵밥
-					</div>
-				</div><br>
-				<div id = "pickbox">
-					<a href = "음식점 페이지"><img class = "max-small" src = "images/산쪼메.jpg"></a>
-					<div id = "pickbox-text">
-						음식점 이름 : 산쪼메 동국대점<br>
-						음식점 위치 : 서울 중구 서애로1길 26<br>
-						음식점 전화번호 : 02-2273-0504<br>
-						음식점 종류 : 일식, 일본식 라면
+			</div><br>
+			<div class = "cafe-review">
+				<a href = "남의페이지.html"><img class = "user-image" src = "images/mypage_icon.png"></a>
+				<div id = "cafe-review-text-box">
+					<font size = 4px>2020-12-02  &nbsp 12:14</font>
+					<div id = "review-star"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"></div><br><br>
+					<div id = "cafe-review-text">
+						이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가 이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨
 					</div>
 					
-				</div><br>
-				<div id = "pickbox">
-					<a href = "음식점 페이지"><img class = "max-small" src = "images/산타돈부리.jpg"></a>
-					<div id = "pickbox-text">
-						음식점 이름 : 산타돈부리<br>
-						음식점 위치 : 서울 중구 서애로 19<br>
-						음식점 전화번호 : 0507-1348-8151<br>
-						음식점 종류 : 일식
+				</div>
+			</div><br>
+			<div class = "cafe-review">
+				<a href = "남의페이지.html"><img class = "user-image" src = "images/mypage_icon.png"></a>
+				<div id = "cafe-review-text-box">
+					<font size = 4px>2020-11-16  &nbsp 14:44</font>
+					<div id = "review-star"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"></div><br><br>
+					<div id = "cafe-review-text">
+						이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가 이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨
 					</div>
-				</div><br>
+					
+				</div>
+			</div><br>
 			
 		</div>
-		<div id = "div_mypage2">
-			<font size = "6">내가 쓴 리뷰 (3)</font><br><br>
-			<div id = "pickbox">
-				<a href = "cafePage.html"><img class = "max-small" src = "images/한솥.jpg"></a>
-				<div id = "review-text">
-					<font size = "4px"><b>한솥 도시락</b></font><br>
-					갓성비 최고!! 언제 먹어도 어머니가 해주시는 맛!! 후회가 절대 없는 맛!! <br><br>
-					<img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><br>
-					
-					
-				</div>
-			</div><br>
-			<div id = "pickbox">
-				<a href = "음식점 페이지"><img class = "max-small" src = "images/산쪼메.jpg"></a>
-				<div id = "review-text">
-					<font size = "4px"><b>산쪼메 동국대점</b></font><br>
-					면요리가 땡기면 자연스레 가는 산쪼메인데 요즘 맛이 조금 변한 것 같아요...ㅠㅠ<br><br>
-					<img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"><img src = "images/Estar.png"><br>
-					
-					
-				</div>
-			</div><br>
-			<div id = "pickbox">
-				<a href = "음식점 페이지"><img class = "max-small" src = "images/산타돈부리.jpg"></a>
-				<div id = "review-text">
-					<font size = "4px"><b>산타돈부리</b></font><br>
-					아 진짜 여기 너무 맛있어요ㅠㅠ 겉바속촉의 대명사입니다 정말! 알바생분도 친절!<br><br>
-					<img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Fstar.png"><img src = "images/Estar.png"><br>
-					
-					
-				</div>
-			</div><br>
-		</div>
 		
-		
-	
-	<!-- jQuery -->
+
+
+
+<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
@@ -208,4 +194,3 @@
 
 	</div>
 </html>
-

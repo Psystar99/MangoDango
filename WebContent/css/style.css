@@ -46,6 +46,8 @@ height : 200px;
 border : 2px solid;
 float : right;
 border-radius : 8px;
+padding : 15px;
+font-size : 20px;
 }
 #pickbox-text{
 padding-top : 20px;
@@ -59,7 +61,7 @@ padding-right : 10px;
 width : 280px;
 height : 140px;
 float : right;
-font-size : 10px;
+font-size : 12px;
 }
 .review-small{
 width: auto; height: auto;
@@ -68,9 +70,20 @@ max-height: 50px;
 padding-top : 10px;
 border-radius : 8px;
 }
+.change-small{
+float : right;
+width: auto; height: auto;
+max-width: 30px;
+max-height: 30px;
+}
+.main-big{
+width: auto; height: auto;
+max-width: 1150px;
+max-height: 700px;
+}
 .my-small{
 width: auto; height: auto;
-max-width: 55px;
+max-width: 60px;
 max-height: 55px;
 }
 .cafe-image{
@@ -2070,7 +2083,9 @@ margin : 0;
 width : auto;
 }
 .img-responsive{
-width : auto;
+width: auto; height: auto;
+max-width: 500px;
+max-height: 300px;
 }
 .gtco-item{
 width : auto;
@@ -2093,9 +2108,6 @@ font-size : 30px;
 }
 .item{
 width: auto;
-}
-.container-4{
-width : 200px;
 }
 .container-4{
 width : 200px;

@@ -23,12 +23,12 @@ public class LikeDAO {
 		}
 	}
 	/* 1. 페이지 로딩시: heart 확인: checkLike 메소드
-	 * return 값 --> 2:안채워짐, db에도 없음/ 1: 안채워짐, db있음/ 0: 채워짐  db있음
+	 * return 값 --> 2:안채워짐, DB에도 없음/ 1: 안채워짐, DB에 있음/ 0: 채워짐, DB에 있음
 	 * 
 	 * 2. 클릭 액션이 일어났을 때: 좋아요 정보 업데이트 메소드--> 페이지에서 처음 로딩할 때 호출했던 1번 함수 checkLike 사용
 	 * 		a. checkLike함수가 2일 떄: pushLike 호출 --> DB에 heart=1하는 액션을 성공하면 1리턴 --> 1받으면 하트 채워줌
 	 * 		b. checkLike함수가 1일 떄: reLike를 호출--> DB에 heart=1하는 액션을 성공하면 1리턴 -->1받으면 하트 채워줌
-	 * 		c. checkLike함수가 0일 때: cancleLike를 호출--> DB에 heart=0하는 액션을 성공하면 1리턴 -->1받으면 하트 비줌	
+	 * 		c. checkLike함수가 0일 때: cancleLike를 호출--> DB에 heart=0하는 액션을 성공하면 1리턴 -->1받으면 하트비워줌 	
 	 * */
 	   
 	//1

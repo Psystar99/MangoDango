@@ -41,7 +41,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Banner -->
-		<a href="MainPage.html">
+		<a href="mainPage.jsp"">
 		<section id="cta" class="main special">
 			<span class="icon fa-diamond major"></span>
 
