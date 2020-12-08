@@ -33,7 +33,7 @@ public class ToResult extends HttpServlet {
 		List info = (List)re.TRinfo(result);
 		request.setAttribute("info", info);
 		
-		RequestDispatcher view = request.getRequestDispatcher("Result.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WC_Result.jsp");
 		view.forward(request, response);
 	}
 

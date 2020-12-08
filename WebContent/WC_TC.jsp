@@ -45,7 +45,7 @@
 	function back(){
 		if(num==1){
 			result = result.concat(select);
-			location.href="Result.jsp?result="+result;;
+			location.href="WC_Result.jsp?result="+result;;
 		}else{
 			result = result.slice(0,-1);	
 			num--;
@@ -67,7 +67,7 @@
 		}else{
 			if(num==4){
 				result = result.concat(select);
-				location.href="Result.jsp?result="+result;
+				location.href="WC_Result.jsp?result="+result;
 			}else{
 				result = result.concat(select);
 				num++;
