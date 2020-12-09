@@ -252,9 +252,9 @@ $(document).ready(function() {
 		</font>
 		<hr>
 
-		<%for(int i=0;i<size;i++){ %>
+		<%if(size==0){}else{for(int i=size-1;i>=0;i--){ %>
 		<div class="cafe-review">
-			<a href="othersPage.html"><img class="user-image"
+			<img class="user-image"
 				src="images/mypage_icon.png"></a>
 			<div id="cafe-review-text-box">
 				<font size=6px><%=list.get(i).getUserName()%></font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -269,10 +269,12 @@ $(document).ready(function() {
 			
 				<font size=4px style="float:right;"><%=list.get(i).getBbsDate()%></font> <br> <br>
 				<div id="cafe-review-text"><%=list.get(i).getBbsContent()%></div>
-
+				<% if((userID!=null)&&(userID.equals(list.get(i).getUserName()))){%><br><br><a href = "deleteReviewAction.jsp?fshopID=<%=fshopID%>"><img class = "change-small" src = "images/cancel.png"></a>
+            <a href = "modifyReviewPage.jsp?fshopID=<%=fshopID%>"><img class = "change-small" src = "images/pen.png"></a>
+				<%}%>
 			</div>
 		</div>
-		<%} %>
+		<%}}%>
 		<br>
 	</div>
 

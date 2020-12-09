@@ -38,7 +38,7 @@
 	
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
-	script.println("history.back()");
+	script.println("location.href='mainPage.jsp'");
 	script.println("</script>");
 	%>
 </body>

@@ -111,7 +111,7 @@
 		<form method="post" id="write-form" action="modifyReviewAction.jsp?fshopID=<%=fshopID%>">
 		
 			<h1 align="center">
-				<b>리뷰 &nbsp&nbsp작성하기
+				<b>리뷰 &nbsp&nbsp수정하기
 			</h1>
 			<img id="addPic" src="images/pen.png" alt=""><br>
 			<br>&nbsp
@@ -123,7 +123,7 @@
 			<br>
 			<div class="like">
 				<h2 align="center">
-					<b>평점 남기기
+					<b>평점 고치기
 				</h2>
 				<hr>
 				<br>

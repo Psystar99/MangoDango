@@ -17,7 +17,7 @@ public class ReviewDAO {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/mango?serverTimezone=UTC";
 			String dbID = "root";
-			String dbPassword = "durmagkfajsl99";
+			String dbPassword = "password";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
@@ -189,7 +189,7 @@ public class ReviewDAO {
 	//8.리뷰 삭제 메소드 
 	public int deleteReview(String userName,int fshop) {
 		// "UPDATE review SET rvavailable =0 WHERE username = 't1' and fshop= 1;
-		String SQL = "UPDATE review SET rvavailable =0 WHERE username = ? and fshop= ?";
+		String SQL = "delete from review WHERE username = ? and fshop= ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 
