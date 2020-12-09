@@ -236,25 +236,46 @@
 </head>
 
 <body>
-	<div class="gtco-loader"></div>
-		<nav class="gtco-nav" role="navigation">
-			<div class="gtco-container">
-				<div class="row">
-					<div class="col-sm-2 col-xs-main">
-						<a href="mainPage.jsp"><img src = "images/logo.png" alt = "  "></a>
-					</div>
-					<div class="col-xs-10 text-right menu-1">
-                  		<ul>
-                    		<li class="active"><a href="index.html"></a></li>
-                     		<div id = "right">
-                        		<a href = "WC_main.html"><img class = "my-small"src = "images/worldcup.png" alt = ""></a>
-                        		<a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
-                     		</div>
-                  		</ul>
-               		</div>
-				</div>
-			</div>
-		</nav>
+	<%
+   String userID = null;
+   if(session.getAttribute("userID")!=null){
+      userID=(String)session.getAttribute("userID");
+   }
+   
+   %>   
+      <div class="gtco-loader"></div>
+      <nav class="gtco-nav" role="navigation">
+         <div class="gtco-container">
+            
+            <div class="row">
+               <div class="col-sm-2 col-xs-main">
+                  <a href="mainPage.jsp"><img src = "images/logo.png" alt = "  "></a>
+               </div>
+               <div class="col-xs-10 text-right menu-1">
+                  <ul>
+                     <li class="active"><a href="index.html"></a></li>
+                     <div id = "right">
+                     <a href = "WC_main.html"><img class = "my-small" src = "images/worldcup.png" alt = ""></a>
+                     <%
+                     if(userID==null){
+                        
+                     %>
+                     <a href = "loginpage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
+                     
+                     <%
+                     }else{
+                     %>
+                     <a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
+                     <%
+                     }
+                     %>
+                     </div>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <!-- TOP footer -->
 		
 		<header>
 			<div style="padding-bottom: 10px; background-color: #d6d2d2">

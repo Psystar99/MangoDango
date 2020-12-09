@@ -11,7 +11,7 @@
 		<div class="main-wrap">
 		<header>
 			<div class="logo-wrap">
-				<a href="mainPage.jsp" target="_blank" title="맛집추천사이트 메인"><img src="logo.png"></a>
+				<a href="mainPage.jsp" target="_blank" title="맛집추천사이트 메인"><img src="images/logo.png"></a>
 			</div>
 		</header>
 		<form method="post" action="loginaction.jsp" id="login">
