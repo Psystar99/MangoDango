@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="like.*"%>
-<%@ page import="review.*"%>
-<%@ page import="user.*"%>
-<%@page import="java.util.ArrayList"%>
-<%@ page import="java.io.PrintWriter"%>
-<%request.setCharacterEncoding("UTF-8");%>
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>MANGOMANGO_cafePage</title>
+<title>MANGOMANGO_change_reviewPage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Free HTML5 Website Template by FreeHTML5.co" />
@@ -52,10 +45,74 @@
 
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+   <script src="js/respond.min.js"></script>
+   <![endif]-->
+
+<!-- json 받아오기위한 script -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<%int fshopID=  Integer.parseInt(request.getParameter("fshopid"));%>
+<script type="text/javascript">
+var fshopID="<%=fshopID%>";
+//fshop name 출력
+$(document).ready(function() { 
+   $.getJSON('./json/food.json', function(data) { 
+      var name = []; // 받아올 데이터를 저장할 배열 선언
+      $.each(data, function(index, item) {
+         name.push('<font size=15px;>' + item.Info[fshopID].Name +'</font>');
+      });
+      $('#name').html(name.join(''));
+   }); 
+});
+   // img 출력
+   $(document).ready(function() { 
+      $.getJSON('./json/food.json', function(data) { 
+         var img = []; // 받아올 데이터를 저장할 배열 선언
+         $.each(data, function(index, item) { 
+            img.push("<img  class='cafe-image' src ="+ item.Info[fshopID].images+ ">" + '<br>')
+         });
+         $('#img').html(img.join(''));
+      }); 
+   });
+   
+   // info 출력
+   $(document).ready(function() { 
+      $.getJSON('./json/food.json', function(data) { 
+         var info = []; // 받아올 데이터를 저장할 배열 선언
+       
+         $.each(data, function(index, item) { 
+            info.push('음식 종류 : ' + item.Info[fshopID].Category+ '<br>'); 
+            info.push('주소 :' + item.Info[fshopID].Address+ '<br>');
+            info.push('홈페이지 :' + item.Info[fshopID].homepage+ '<br>');
+            info.push('전화번호 :' + item.Info[fshopID].phoneNumber+ '<br>');
+            info.push('메뉴' + '<br>' + item.Info[fshopID].detail[0].menu+ ' : ' +item.Info[0].detail[0].cost +  '<br>');
+            info.push(item.Info[fshopID].detail[1].menu+ ' : ' +item.Info[0].detail[1].cost +  '<br>');
+            info.push(item.Info[fshopID].detail[2].menu+ ' : ' +item.Info[0].detail[2].cost +  '<br>');
+            info.push(item.Info[fshopID].detail[3].menu+ ' : ' +item.Info[0].detail[3].cost +  '<br>');
+            info.push(item.Info[fshopID].detail[4].menu+ ' : ' +item.Info[0].detail[4].cost +  '<br>');
+         });
+      
+         $('#info').html(info.join(''));
+      }); 
+   });
+   
+   // map 출력
+   $(document).ready(function() { 
+      $.getJSON('./json/food.json', function(data) { 
+         var map = []; // 받아올 데이터를 저장할 배열 선언
+         $.each(data, function(index, item) {
+            map.push('<div>' + item.Info[fshopID].xposition + ',' + item.Info[fshopID].yposition + '</div>');
+         });
+      
+         $('#map').html(map.join(''));
+      }); 
+   });
+</script>
 
 </head>
 <body>
-
 	<%
    String userID = null;
    if(session.getAttribute("userID")!=null){
@@ -102,26 +159,26 @@
 	<hr>
 	<!-- TOP footer -->
 
-	<div class="gtco-container">
-		<img class="cafe-image" src="images/산쪼메.jpg"> <img
-			class="cafe-image" src="images/산쪼메.jpg"> <img
-			class="cafe-image" src="images/산쪼메.jpg"> <br> <br> <br>
-		<font size=15px>산쪼메&nbsp&nbsp</font> <img src="images/Fstar.png"><img
-			src="images/Fstar.png"><img src="images/Fstar.png"><img
-			src="images/Estar.png"><img src="images/Estar.png"> <font
-			size=5px>3</font>
-		<div class="cafe-icon">
-			<a href="writeReviewPage.jsp"><img class="icon"
-				src="images/pen.png"></a>&nbsp&nbsp<img class="icon"
-				src="images/zzim.png">
-		</div>
-		<hr>
-		<div id="cafe-info">
-			음식점 이름 : 산쪼메<br> <br> 음식점 주소 : 서울 중구 서애로1길 26<br> <br>
-			음식점 전화번호 : 02-2273-0504<br> <br> 음식종류 : 일식<br> <br>
 
-		</div>
-		<div id="cafe-map" align="center">
+
+		<div class="gtco-container">
+			<div id="img"></div>
+			<br>
+			<br>
+			<br> <font id ="name"></font><img
+				src="images/Fstar.png"><img src="images/Fstar.png"><img
+				src="images/Estar.png"><img src="images/Estar.png"><img
+				src="images/Estar.png">
+			<div class="cafe-icon">
+				<a href="writeReviewPage.jsp"><img class="icon"
+					src="images/pen.png"></a>
+			</div>
+			<hr>
+			<div id="cafe-info">
+				<div id="info"></div>
+			</div>
+			
+				<div id="cafe-map" align="center">
 
 
 			<script type="text/javascript"
@@ -157,77 +214,83 @@ content : iwContent
 infowindow.open(map, marker); 
 </script>
 		</div>
+		
 
-		<font size=15px>리뷰 (3)</font>
-		<hr>
-		<div class="cafe-review">
-			<img class="user-image"
-				src="images/mypage_icon.png">
-			<div id="cafe-review-text-box">
-				<font size=4px>2020-12-06 &nbsp 16:27</font>
-				<div id="review-star">
-					<img src="images/Fstar.png"><img src="images/Fstar.png"><img
-						src="images/Fstar.png"><img src="images/Estar.png"><img
-						src="images/Estar.png">
+			<font size=15px>리뷰 (3)</font>
+			<hr>
+			<div class="cafe-review">
+				<a href="othersPage.html"><img class="user-image"
+					src="images/mypage_icon.png"></a>
+				<div id="cafe-review-text-box">
+					<font size=4px>2020-11-16 &nbsp 14:44</font>
+					<div id="review-star">
+						<img src="images/Fstar.png"><img src="images/Fstar.png"><img
+							src="images/Estar.png"><img src="images/Estar.png"><img
+							src="images/Estar.png">
+					</div>
+					<br>
+					<br>
+					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가
+						이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
+
 				</div>
-				<br> <br>
-				<div id="cafe-review-text">무난무난무난! 그냥 가끔 라면 먹고 싶을 때~~~ 돌 신기방기</div>
-
 			</div>
-		</div>
-		<br>
-		<div class="cafe-review">
-			<img class="user-image"
-				src="images/mypage_icon.png">
-			<div id="cafe-review-text-box">
-				<font size=4px>2020-12-02 &nbsp 12:14</font>
-				<div id="review-star">
-					<img src="images/Fstar.png"><img src="images/Fstar.png"><img
-						src="images/Fstar.png"><img src="images/Fstar.png"><img
-						src="images/Fstar.png">
+			<br>
+			<div class="cafe-review">
+				<a href="남의페이지.html"><img class="user-image"
+					src="images/mypage_icon.png"></a>
+				<div id="cafe-review-text-box">
+					<font size=4px>2020-12-02 &nbsp 12:14</font>
+					<div id="review-star">
+						<img src="images/Fstar.png"><img src="images/Fstar.png"><img
+							src="images/Estar.png"><img src="images/Estar.png"><img
+							src="images/Estar.png">
+					</div>
+					<br>
+					<br>
+					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가
+						이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
+
 				</div>
-				<br> <br>
-				<div id="cafe-review-text">너무너무 맛있다! 역시 충무로 원탑!</div>
-
 			</div>
-		</div>
-		<br>
-		<div class="cafe-review">
-			<img class="user-image"
-				src="images/mypage_icon.png">
-			<div id="cafe-review-text-box">
-				<font size=4px>2020-11-16 &nbsp 14:44</font>
-				<div id="review-star">
-					<img src="images/Fstar.png"><img src="images/Estar.png"><img
-						src="images/Estar.png"><img src="images/Estar.png"><img
-						src="images/Estar.png">
+			<br>
+			<div class="cafe-review">
+				<a href="남의페이지.html"><img class="user-image"
+					src="images/mypage_icon.png"></a>
+				<div id="cafe-review-text-box">
+					<font size=4px>2020-11-16 &nbsp 14:44</font>
+					<div id="review-star">
+						<img src="images/Fstar.png"><img src="images/Fstar.png"><img
+							src="images/Estar.png"><img src="images/Estar.png"><img
+							src="images/Estar.png">
+					</div>
+					<br>
+					<br>
+					<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됌! 그래서 나는 내가
+						이해가 안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
+
 				</div>
-				<br> <br>
-				<div id="cafe-review-text">이딴걸 왜 돈주고 먹음? 이해가 안됨! 그래서 나는 내가 이해가
-					안됨! ㅈㅁㅌㄱㄹ >_< 민트초코 짱짱맨</div>
-
 			</div>
+			<br>
+
 		</div>
-		<br>
-
-	</div>
 
 
 
 
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!— jQuery Easing —>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!— Bootstrap —>
-	<script src="js/bootstrap.min.js"></script>
-	<!— Waypoints —>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!— Carousel —>
-	<script src="js/owl.carousel.min.js"></script>
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<!-- Carousel -->
+		<script src="js/owl.carousel.min.js"></script>
 
-	<!— Main —>
-	<script src="js/main.js"></script>
+		<!-- Main -->
+		<script src="js/main.js"></script>
 </body>
 
 <footer id="gtco-footer" class="gtco-section" role="contentinfo">
@@ -261,4 +324,6 @@ infowindow.open(map, marker);
 <!— END footer —>
 
 </div>
+
+</body>
 </html>

@@ -106,7 +106,7 @@
 	<!-- TOP footer -->
 	<div class="gtco-container">
 		<br>
-		<%int fshopID= 1;%>
+		<%int fshopID=  Integer.parseInt(request.getParameter("fshopID"));%>
 		<form method="post" id="write-form" action="writeReviewAction.jsp?fshopID=<%=fshopID%>">
 		
 			<h1 align="center">

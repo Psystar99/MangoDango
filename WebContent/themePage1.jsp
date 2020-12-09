@@ -4,56 +4,56 @@
 <!DOCTYPE HTML>
 <html>
    <head>
-   	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MANGOMANGO_MainPage</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FreeHTML5.co" />
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-	
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Montserrat:400,700" rel="stylesheet">
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Themify Icons-->
-	<link rel="stylesheet" href="css/themify-icons.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+      <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>MANGOMANGO_MainPage</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+   <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+   <meta name="author" content="FreeHTML5.co" />
+   <meta property="og:title" content=""/>
+   <meta property="og:image" content=""/>
+   <meta property="og:url" content=""/>
+   <meta property="og:site_name" content=""/>
+   <meta property="og:description" content=""/>
+   <meta name="twitter:title" content="" />
+   <meta name="twitter:image" content="" />
+   <meta name="twitter:url" content="" />
+   <meta name="twitter:card" content="" />
+   
+   <!-- jQuery -->
+   <script src="js/jquery.min.js"></script>
+   <!-- jQuery Easing -->
+   <script src="js/jquery.easing.1.3.js"></script>
+   <!-- Bootstrap -->
+   <script src="js/bootstrap.min.js"></script>
+   <!-- Waypoints -->
+   <script src="js/jquery.waypoints.min.js"></script>
+   <!-- Carousel -->
+   <script src="js/owl.carousel.min.js"></script>
+   <!-- Main -->
+   <script src="js/main.js"></script>
+   <!-- Modernizr JS -->
+   <script src="js/modernizr-2.6.2.min.js"></script>
+   <!-- FOR IE9 below -->
+   <!--[if lt IE 9]>
+   <script src="js/respond.min.js"></script>
+   <![endif]-->
+   
+   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Montserrat:400,700" rel="stylesheet">
+   <!-- Animate.css -->
+   <link rel="stylesheet" href="css/animate.css">
+   <!-- Icomoon Icon Fonts-->
+   <link rel="stylesheet" href="css/icomoon.css">
+   <!-- Themify Icons-->
+   <link rel="stylesheet" href="css/themify-icons.css">
+   <!-- Bootstrap  -->
+   <link rel="stylesheet" href="css/bootstrap.css">
+   <!-- Owl Carousel  -->
+   <link rel="stylesheet" href="css/owl.carousel.min.css">
+   <link rel="stylesheet" href="css/owl.theme.default.min.css">
+   <!-- Theme style  -->
+   <link rel="stylesheet" href="css/style.css">
 
    <script>
    // img 출력
@@ -132,12 +132,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info1 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info1.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[1].Index + ". " + item.Info[0].Name + '</h3>' + '</a>');
+            info1.push('<a href="fshopPage.jsp?fshopid=0" style = "text-decoration:none; ">' + '<h3>' + item.Info[1].Index + ". " + item.Info[0].Name + '</h3>' + '</a>');
             info1.push('종류 : ' + item.Info[0].Category+ '<br>');
             info1.push('주소 : ' + item.Info[0].Address+ '<br>');
             info1.push('홈페이지 : ' + item.Info[0].homepage + '<br>');
             info1.push('전화번호 : ' + item.Info[0].phoneNumber + '<br><br>');
-            info1.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info1.push('<a href="fshopPage.jsp?fshopid=0" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info1').html(info1.join(''));
       }); 
@@ -147,12 +147,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info2 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info2.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[2].Index + ". " + item.Info[1].Name + '</h3>' + '</a>');
+            info2.push('<a href="fshopPage.jsp?fshopid=1" style = "text-decoration:none; ">' + '<h3>' + item.Info[2].Index + ". " + item.Info[1].Name + '</h3>' + '</a>');
             info2.push('종류 : ' + item.Info[1].Category+ '<br>');
             info2.push('주소 : ' + item.Info[1].Address+ '<br>');
             info2.push('홈페이지 : ' + item.Info[1].homepage + '<br>');
             info2.push('전화번호 : ' + item.Info[1].phoneNumber + '<br><br>');
-            info2.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info2.push('<a href="fshopPage.jsp?fshopid=1" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info2').html(info2.join(''));
       }); 
@@ -162,12 +162,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info3 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info3.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[3].Index + ". " + item.Info[2].Name + '</h3>' + '</a>');
+            info3.push('<a href="fshopPage.jsp?fshopid=2" style = "text-decoration:none; ">' + '<h3>' + item.Info[3].Index + ". " + item.Info[2].Name + '</h3>' + '</a>');
             info3.push('종류 : ' + item.Info[2].Category+ '<br>');
             info3.push('주소 : ' + item.Info[2].Address+ '<br>');
             info3.push('홈페이지 : ' + item.Info[2].homepage + '<br>');
             info3.push('전화번호 : ' + item.Info[2].phoneNumber + '<br><br>');
-            info3.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info3.push('<a href="fshopPage.jsp?fshopid=2" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info3').html(info3.join(''));
       }); 
@@ -177,12 +177,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info4 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info4.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[4].Index + ". " + item.Info[3].Name + '</h3>' + '</a>');
+            info4.push('<a href="fshopPage.jsp?fshopid=3" style = "text-decoration:none; ">' + '<h3>' + item.Info[4].Index + ". " + item.Info[3].Name + '</h3>' + '</a>');
             info4.push('종류 : ' + item.Info[3].Category+ '<br>');
             info4.push('주소 : ' + item.Info[3].Address+ '<br>');
             info4.push('홈페이지 : ' + item.Info[3].homepage + '<br>');
             info4.push('전화번호 : ' + item.Info[3].phoneNumber + '<br><br>');
-            info4.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info4.push('<a href="fshopPage.jsp?fshopid=3" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info4').html(info4.join(''));
       }); 
@@ -192,12 +192,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info5 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info5.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[5].Index + ". " + item.Info[4].Name + '</h3>' + '</a>');
+            info5.push('<a href="fshopPage.jsp?fshopid=4" style = "text-decoration:none; ">' + '<h3>' + item.Info[5].Index + ". " + item.Info[4].Name + '</h3>' + '</a>');
             info5.push('종류 : ' + item.Info[4].Category+ '<br>');
             info5.push('주소 : ' + item.Info[4].Address+ '<br>');
             info5.push('홈페이지 : ' + item.Info[4].homepage + '<br>');
             info5.push('전화번호 : ' + item.Info[4].phoneNumber + '<br><br>');
-            info5.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info5.push('<a href="fshopPage.jsp?fshopid=4" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info5').html(info5.join(''));
       }); 
@@ -207,12 +207,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info6 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info6.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[6].Index + ". " + item.Info[5].Name + '</h3>' + '</a>');
+            info6.push('<a href="fshopPage.jsp?fshopid=5" style = "text-decoration:none; ">' + '<h3>' + item.Info[6].Index + ". " + item.Info[5].Name + '</h3>' + '</a>');
             info6.push('종류 : ' + item.Info[5].Category+ '<br>');
             info6.push('주소 : ' + item.Info[5].Address+ '<br>');
             info6.push('홈페이지 : ' + item.Info[5].homepage + '<br>');
             info6.push('전화번호 : ' + item.Info[5].phoneNumber + '<br><br>');
-            info6.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info6.push('<a href="fshopPage.jsp?fshopid=5" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info6').html(info6.join(''));
       }); 
@@ -222,12 +222,12 @@
       $.getJSON('./json/food.json', function(data) { 
          var info7 = []; // 받아올 데이터를 저장할 배열 선언
          $.each(data, function(index, item) { 
-            info7.push('<a href = "한솥.jsp" style = "text-decoration:none; ">' + '<h3>' + item.Info[7].Index + ". " + item.Info[6].Name + '</h3>' + '</a>');
+            info7.push('<a href="fshopPage.jsp?fshopid=6" style = "text-decoration:none; ">' + '<h3>' + item.Info[7].Index + ". " + item.Info[6].Name + '</h3>' + '</a>');
             info7.push('종류 : ' + item.Info[6].Category+ '<br>');
             info7.push('주소 : ' + item.Info[6].Address+ '<br>');
             info7.push('홈페이지 : ' + item.Info[6].homepage + '<br>');
             info7.push('전화번호 : ' + item.Info[6].phoneNumber + '<br><br>');
-            info7.push('<a href = "한솥.jsp" style = "text-decoration:none; text-align:right;">더보기..</a>');
+            info7.push('<a href="fshopPage.jsp?fshopid=6" style = "text-decoration:none; text-align:right;">더보기..</a>');
          });
          $('#info7').html(info7.join(''));
       }); 
