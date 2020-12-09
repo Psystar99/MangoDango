@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="like.*"%>
+<%@ page import="review.*"%>
+<%@ page import="user.*"%>
+<%@page import="java.util.ArrayList" %>
+<%@ page import="java.io.PrintWriter"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE HTML>
 
 <html>
@@ -79,9 +84,10 @@
                      
                      <%
                      }else{
-                     %>
-                     <a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
-                     <%
+                  	    %>
+                        <a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
+                        <a href = "logoutaction.jsp"><img class = "my-small" src = "images/logout.png" alt = ""></a>
+                        <%
                      }
                      %>
                      </div>

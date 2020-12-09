@@ -264,9 +264,10 @@
                      
                      <%
                      }else{
-                     %>
-                     <a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
-                     <%
+                    	 %>
+                         <a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
+                         <a href = "logoutaction.jsp"><img class = "my-small" src = "images/logout.png" alt = ""></a>
+                         <%
                      }
                      %>
                      </div>

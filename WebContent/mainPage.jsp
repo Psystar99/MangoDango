@@ -87,10 +87,11 @@
                      <%
                      }else{
                      %>
-                     <a href = "myPage.jsp"><img class = "my-small" src = "images/my_icon.png" alt = ""></a>
+                     <a href = "logoutaction.jsp"><img class = "my-small" src = "images/logout.png" alt = ""></a>
                      <%
                      }
                      %>
+
                      </div>
                   </ul>
                </div>
@@ -107,7 +108,7 @@
 				<div class="col-md-12">
 					<div class="owl-carousel owl-carousel-fullwidth">
 						<div class="item">
-							<a href="#">
+							<a href="themePage1.jsp">
 								<img class = "main-big" src="images/한솥.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>학교 주변 가볍게 먹을 수 있는!!</h2>
@@ -115,7 +116,7 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="themePage2.jsp">
 								<img class = "main-big" src="images/두끼.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>오늘은 분식이 땡겨~</h2>
@@ -123,7 +124,7 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="themePage3.jsp">
 								<img class = "main-big" src="images/마쓰에.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>일식이 먹고 싶다...</h2>
@@ -131,7 +132,7 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="themePage4.jsp">
 								<img class = "main-big" src="images/동대닭한마리.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>한국 사람이라면 한식!</h2>
@@ -139,7 +140,7 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="themePage5.jsp">
 								<img class = "main-big" src="images/동회루.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>사천! 중국집!</h2>
@@ -147,7 +148,7 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="themePage6.jsp">
 								<img class = "main-big" src="images/손문.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>고기 맛집! 거하게 먹자!</h2>
@@ -155,7 +156,7 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="themePage7.jsp">
 								<img class = "main-big" src="images/치킨특별시.jpg" alt="Free Website Template by FreeHTML5.co">
 								<div class="slider-copy">
 									<h2>오늘은 치킨이닭!</h2>

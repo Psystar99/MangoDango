@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.Date"%>
+<%@ page import="like.*"%>
+<%@ page import="review.*"%>
+<%@ page import="user.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.io.PrintWriter"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE HTML>
 
 <html>
@@ -47,10 +52,6 @@
 
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 
 </head>
 <body>
@@ -85,11 +86,12 @@
 
 							<%
                      }else{
-                     %>
-							<a href="myPage.jsp"><img class="my-small"
-								src="images/my_icon.png" alt=""></a>
-							<%
-                     }
+                    	    %>
+                     
+                            <a href = "logoutaction.jsp"><img class = "my-small" src = "images/logout.png" alt = ""></a>
+                            <%
+                            }
+                     
                      %>
 						</div>
 					</ul>
@@ -109,7 +111,7 @@
 			src="images/Estar.png"><img src="images/Estar.png"> <font
 			size=5px>3</font>
 		<div class="cafe-icon">
-			<a href="writeReviewPage.html"><img class="icon"
+			<a href="writeReviewPage.jsp"><img class="icon"
 				src="images/pen.png"></a>&nbsp&nbsp<img class="icon"
 				src="images/zzim.png">
 		</div>
@@ -159,8 +161,8 @@ infowindow.open(map, marker);
 		<font size=15px>리뷰 (3)</font>
 		<hr>
 		<div class="cafe-review">
-			<a href="othersPage.html"><img class="user-image"
-				src="images/mypage_icon.png"></a>
+			<img class="user-image"
+				src="images/mypage_icon.png">
 			<div id="cafe-review-text-box">
 				<font size=4px>2020-12-06 &nbsp 16:27</font>
 				<div id="review-star">
@@ -175,8 +177,8 @@ infowindow.open(map, marker);
 		</div>
 		<br>
 		<div class="cafe-review">
-			<a href="남의페이지.html"><img class="user-image"
-				src="images/mypage_icon.png"></a>
+			<img class="user-image"
+				src="images/mypage_icon.png">
 			<div id="cafe-review-text-box">
 				<font size=4px>2020-12-02 &nbsp 12:14</font>
 				<div id="review-star">
@@ -191,8 +193,8 @@ infowindow.open(map, marker);
 		</div>
 		<br>
 		<div class="cafe-review">
-			<a href="남의페이지.html"><img class="user-image"
-				src="images/mypage_icon.png"></a>
+			<img class="user-image"
+				src="images/mypage_icon.png">
 			<div id="cafe-review-text-box">
 				<font size=4px>2020-11-16 &nbsp 14:44</font>
 				<div id="review-star">
