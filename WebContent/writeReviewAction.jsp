@@ -25,6 +25,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+<%int fshopID= Integer.parseInt(request.getParameter("fshopID"));%>
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {//유저아이디이름으로 세션이 존재하는 회원들은 
@@ -45,7 +46,7 @@
 				script.println("</script>");
 			} else {
 				ReviewDAO reviewDAO = new ReviewDAO();
-				int result = reviewDAO.writeReview(userID,review.getFshopID(), review.getBbsContent(),review.getStar());
+				int result = reviewDAO.writeReview(userID,fshopID, review.getBbsContent(),review.getStar());
 				if (result == -1) {
 					PrintWriter script = response.getWriter();
 					script.println("<script>");

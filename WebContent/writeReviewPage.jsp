@@ -106,8 +106,8 @@
 	<!-- TOP footer -->
 	<div class="gtco-container">
 		<br>
-		<%int fshopID= Integer.parseInt(request.getParameter("fshopID"));%>
-		<form method="post" action="writeReviewAction.jsp?fshopID=<%=fshopID%>">
+		<%int fshopID= 1;%>
+		<form method="post" id="write-form" action="writeReviewAction.jsp?fshopID=<%=fshopID%>">
 		
 			<h1 align="center">
 				<b>리뷰 &nbsp&nbsp작성하기
@@ -138,7 +138,7 @@
 				<br>
 
 
-				<div id="submit">
+				<div id="submit" onClick="document.forms['write-form'].submit();">
 					<div class="button_base b03_skewed_slide_in">
 						<div>Submit!!</div>
 						<div></div>
