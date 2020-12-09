@@ -29,7 +29,7 @@ public class ReviewDAO {
 	public double calStar(int fshopID) {
 		double star=0;
 		int fnum=0;
-		String SQL="select star from review where fshop=?";
+		String SQL="select star from review where fshop=? and rvavailable=1";
 		try {
 		 pstmt = conn.prepareStatement(SQL);
 		 pstmt.setInt(1, fshopID);
