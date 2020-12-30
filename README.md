@@ -11,12 +11,11 @@
 
 ## 개발 환경
 ### 사용 IDE: 
-Eclipse
+- Eclipse
 ### 사용 언어 및 기술: 
-언어: HTML, CSS, JavaScript, JSP, MySQL(8.0.22)
+- 언어: HTML, CSS, JavaScript, JSP, MySQL(8.0.22)
 
-어플리케이션 배포: AWS EC2의 아마존 리눅스 인스턴스 사용, Docker를 통해 MySQL 설치
-
+- 어플리케이션 배포: AWS EC2의 아마존 리눅스 인스턴스 사용, Docker를 통해 MySQL 설치
 (참고
 :https://dunkey2615.tistory.com/114
 :https://jang8584.tistory.com/267)
